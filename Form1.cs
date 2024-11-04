@@ -55,7 +55,7 @@ namespace AmIBattlEyeBanned
                 outgoingData = outgoingData.Concat(Encoding.UTF8.GetBytes(computeBeId(rid))).ToArray();
                 client.Send(outgoingData, outgoingData.Length);
 
-                // Send
+                // Receive
                 byte[] receivedData = client.Receive(ref ep);
                 return Encoding.ASCII.GetString(receivedData.Skip(4).ToArray());
             }
